@@ -1,0 +1,17 @@
+{
+    "name": "nocoolnametom/wiki-_copy",
+    "description": "Makes a data dump of a wiki through the export process",
+    "require": {
+        "querypath/querypath": "^3.0",
+        "masterminds/html5": "^2.1"
+    },
+    "files": [
+        "vendor/querypath/querypath/src/QueryPath.php"
+    ],
+    "authors": [
+        {
+            "name": "Tom Doggett",
+            "email": "nocoolnametom@gmail.com"
+        }
+    ]
+}
