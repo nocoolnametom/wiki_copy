@@ -4,6 +4,10 @@ require_once(__ROOT__ . '/bootstrap.php');
 
 use Masterminds\HTML5;
 
+$options = getopt("h:p:", array(
+  "namespace:"
+));
+
 $context = stream_context_create(array(
   'http'=>array(
     'method'=>"GET",
@@ -13,13 +17,18 @@ $context = stream_context_create(array(
 ));
 
 $protocol = 'http';
-$url = 'en.fairmormon.org';
+$url = $options['h'] ?: 'en.wikipedia.org';
 
 $filename = 'titles.' . $url . '.' . date('U');
 
 $page_titles = array();
 
 $all_pages_path = '/index.php?title=Special:AllPages';
+
+if (!empty($options['namespace']))
+{
+  $all_pages_path .= '&namespace=' . $options['namespace'];
+}
 
 $html5 = new HTML5();
 $not_last_page = true;
